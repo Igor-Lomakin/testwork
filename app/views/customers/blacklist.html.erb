@@ -1,0 +1,29 @@
+<h2>Черный список клиентов</h2>
+
+
+	<%= form_for :search do |f| %>
+	<p>
+			<h4>добавление в список по номеру телефона:</h4>
+			<%= f.text_field :blklist %>
+	</p>
+	
+	<% end %>
+  
+
+
+<hr>
+<% @customer.each do |customer| %>
+	<% if customer.blklist == true %>
+	<div>
+		<h4>Имя:						<%= customer.name %></h4>
+		<p> Номер телефона:	<%= customer.number %></p>
+		<p>	Описание:				<%= customer.description %></p>
+ <%= link_to "параметры клиента", customer_path(customer), :class => "btn btn-warning" %>
+
+<hr>
+	<% end %>
+		
+		
+
+	</div	>
+<% end %>

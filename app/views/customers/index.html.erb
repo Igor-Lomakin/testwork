@@ -1,13 +1,17 @@
 <h2>Cписок клиентов</h2>
 <hr>
 <% @customer.each do |customer| %>
+	<% if customer.blklist == false %>
 	<div>
 		<h4>Имя:						<%= customer.name %></h4>
 		<p> Номер телефона:	<%= customer.number %></p>
 		<p>	Описание:				<%= customer.description %></p>
-		
-		<%= link_to "параметры клиента", customer_path(customer), :class => "btn btn-warning" %>
+  <%= link_to "параметры клиента", customer_path(customer), :class => "btn btn-warning" %>
+
 <hr>
+	<% end %>
+		
+		
 
 	</div	>
 <% end %>
