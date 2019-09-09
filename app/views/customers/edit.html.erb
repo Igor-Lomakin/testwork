@@ -1,0 +1,40 @@
+<h2>Редактирование данных клиента</h2>
+<%= form_for :customer, url: customer_path(customer_url), method: :patch do |f| %>
+	<% if @customer.errors.any? %>
+		<% @customer.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+	<p>
+		Имя<br>
+		<%= f.text_field(:name, {:class => 'form_control'}) %>
+		<% if @customer.errors.any? %>
+		<% @customer.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+	</p>
+
+	<p>
+		Номер телефона<br>
+		<%= f.text_field(:number, {:class => 'form_control'}) %>
+		<% if @customer.errors.any? %>
+		<% @customer.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+	</p>
+
+	<p>
+		Описание<br>
+		<% if @customer.errors.any? %>
+		<% @customer.errors.full_messages.each do |msg| %>
+			<div class="alert alert-danger"><%= msg %></div>
+		<% end %>
+	<% end %>
+		<%= f.text_area(:description, {:class => 'form_control'}) %>
+	</p>
+	<p> 
+		<%= f.submit({:class => 'btn btn-warning'}) %>
+	</p>
+<% end %>

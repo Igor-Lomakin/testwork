@@ -1,0 +1,9 @@
+<h4>Имя:						<%= @customer.name %></h4>
+<p> Номер телефона:	<%= @customer.number %></p>
+<p>	Описание:				<%= @customer.description %></p>
+<p> (проверка на смену t\f):  <%= @customer.blklist %> </p>
+<%= link_to 'Редактировать', edit_customer_path(@customer), :class => "btn btn-warning" %>
+
+<%= link_to "в черный cписок", :controller => :customers, :action => :toggle_blacklist, customer_id: @customer.id %>
+
+
